@@ -1,5 +1,7 @@
 # defcon_ai_ctf_2022
-My solutions for the AI Village Capture the Flag @ DEFCON Kaggle competition.
+My solutions for the [AI Village Capture the Flag @ DEFCON Kaggle competition](https://www.kaggle.com/competitions/ai-village-ctf/).
+
+
 
 **HOTDOG**
 - **what worked**:  The simplest approach is usually the best to try out first. In this CTF we could upload external data so I used an image of a hotdog to get the flag. This one was pretty easy and didn't require much work.
