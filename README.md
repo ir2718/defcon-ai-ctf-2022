@@ -1,4 +1,4 @@
-# defcon_ai_ctf_2022
+# defcon-ai-ctf-2022
 My solutions for the [AI Village Capture the Flag @ DEFCON Kaggle competition](https://www.kaggle.com/competitions/ai-village-ctf/).
 
 
