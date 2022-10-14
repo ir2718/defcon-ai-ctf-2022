@@ -82,26 +82,26 @@ My solutions for the [AI Village Capture the Flag @ DEFCON Kaggle competition](h
 **THEFT**
 - **hints**: people have solved it without using the `encpickle` file (is this a hint?)
 - **what didn't work**:
-      - trying to read the `encpickle` using every encoding known to man
-      - adding random noise
+     - trying to read the `encpickle` using every encoding known to man
+     - adding random noise
 -  **what worked**:  Since salt and theft are somewhat related I wanted to try out using the model prepared for salt to solve theft. Using [this](https://tcode2k16.github.io/blog/posts/picoctf-2018-writeup/general-skills/#solution-20) helped a lot since I don't know much about using keras and tensorflow. The basic idea is to overfit the input image so that it gets predicted as the class that we want. I found the class indices [here](https://deeplearning.cms.waikato.ac.nz/user-guide/class-maps/IMAGENET/).
 
 **HOTTERDOG**
 - **what didn't work**:
-      - manually combining images of chester and a hot dog in paint
-      - blending images of chester and a hot dog
-      - adding sauce onto chester 
+     - manually combining images of chester and a hot dog in paint
+     - blending images of chester and a hot dog
+     - adding sauce onto chester 
 -  **what worked**:  Once I solved theft I noticed one of the classes used for mobile net was hotdog so I tried the same procedure using the image of chester and the hotdog class and got the flag.
 
 **SALT**
 - **what didn't work**:
-    - using a too small confidence value
-    - adding pepper noise in order to cancel out the salting
+     - using a too small confidence value
+     - adding pepper noise in order to cancel out the salting
 - **what worked**: Turns out I was thinking too hard. I just needed to use the same stuff from the theft problem but set the confidence level to 1.0
 
 **CROP 1**
 - **what didn't work**:
-    - cropping the original image multiple times to get the score as low as possible
-    - somehow force idx == 8 and preds.max() around -1 so the values cancel out
-    - resizing the image to a smaller size before scoring
+     - cropping the original image multiple times to get the score as low as possible
+     - somehow force idx == 8 and preds.max() around -1 so the values cancel out
+     - resizing the image to a smaller size before scoring
 - **what worked**: Taking a step back and looking at the scoring function. X_comp is divided by 0b1010 which is 10, then the expected variable is defined as `(25.5 - expected)` and finally sse uses `expected*10` which means the image I need to minimize sse is `255 - X_comp`. After noticing this insight I created a 3x3 grid with each of the subimages being `255-X_comp` but unfortunately this didn't pass the threshold. The culprit was the redness. Finally, if the red channel value was higher than 230 I just replaced it with 220 and became the cropping champion.
