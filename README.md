@@ -1,5 +1,5 @@
 # defcon-ai-ctf-2022
-My solutions for the [AI Village Capture the Flag @ DEFCON Kaggle competition](https://www.kaggle.com/competitions/ai-village-ctf/).
+My solutions for the [AI Village Capture the Flag @ DEFCON Kaggle competition](https://www.kaggle.com/competitions/ai-village-ctf/), where I managed to get to **34**th place out of **668** contestants.
 
 
 
